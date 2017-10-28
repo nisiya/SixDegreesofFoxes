@@ -82,6 +82,15 @@ module.exports = function(app, db) {
     });
   });
 
+  app.post('/invite/user', (req, res) => {
+    // user 1 invited user 2 to the following challenge
+    const info = req.body;
+    db.query(`insert into UserInvites set ?`, info, (err, result) => {
+      if(err) throw err;
+      res.send(result);
+    });
+  });
+
   app.get('/actions', (req, res) => {
     db.query(`select * from Actions`, (err, actions) => {
       if(err) throw err;
