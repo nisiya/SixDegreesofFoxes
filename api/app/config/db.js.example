@@ -2,5 +2,6 @@ module.exports = {
   url: "localhost:3306",
   user: "root",
   password: "",
-  database: "degrees_db"
+  database: "degrees_db",
+  multipleStatements: true
 };
