@@ -4,21 +4,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateAccUserComponent } from './create-acc-user.component';
+import { ViewAccUserComponent } from './view-acc-user.component';
+import { ViewChallengeComponent } from './view-challenge.component';
 import { CreateAccNPComponent } from './create-acc-np.component';
 import { CreateChallengeComponent } from './create-challenge.component';
 import { InvitePeopleComponent } from './invite-people.component';
 import { LoginComponent } from './login.component';
-import { ViewChallengeComponent } from './view-challenge.component';
 
 //The different routes correspond to different components to load based on the route selected
 const appRoutes: Routes = [
   { path: '', redirectTo: '/create-acc-user', pathMatch: 'full' },
   { path: 'create-acc-user', component: CreateAccUserComponent },
+  { path: 'view-acc-user', component: ViewAccUserComponent },
+  { path: 'view-challenge', component: ViewChallengeComponent }
   { path: 'create-acc-np', component: CreateAccNPComponent },
   { path: 'create-challenge', component: CreateChallengeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'invite-people', component: InvitePeopleComponent },  
-  { path: 'view-challenge', component: ViewChallengeComponent }   
+  { path: 'invite-people', component: InvitePeopleComponent }      
 ];
 
 @NgModule({
