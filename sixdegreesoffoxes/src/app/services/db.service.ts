@@ -130,6 +130,7 @@ export class DBService {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let params = new URLSearchParams();
+        params.set('id', id);
         let options = new RequestOptions({headers: headers, search: params});
         return this.http.get(getcompletedchallenges, options)
         .toPromise()
@@ -143,6 +144,7 @@ export class DBService {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let params = new URLSearchParams();
+        params.set('id', id);
         let options = new RequestOptions({headers: headers, search: params});
         return this.http.get(getpending, options)
         .toPromise()

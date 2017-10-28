@@ -35,10 +35,17 @@
 										<th>Challenge</th>
 										<th>Non-Profit</th>
 										<th>Degree After</th>
+										<th>Amount</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
+									<tr *ngFor="let comp of completed">
+										<td>{{comp.c_id}}</td>
+										<td>{{comp.user_id}}</td>
+										<td>{{comp.a_id}}</td>
+										<td>{{any}}</td>
+									</tr>
+									<!-- <tr>
 										<td id="challenge">ALS Challenge</td>
 										<td id="val">ALS</td>
 										<td id="degree">3</td>
@@ -47,7 +54,7 @@
 										<td id="challenge">Animal Challenge</td>
 										<td id="val">Animal Shelter</td>
 										<td id="degree">6</td>
-									</tr>
+									</tr> -->
 								</tbody>
 							</table>						</div>
 					  </div>
@@ -58,12 +65,22 @@
 		<div class="card bg-light mb-3" style="max-width: 50rem;">
 				<div class="card-header">Pending Challenges</div>
 				<div class="card-body">
-					<!-- <h4 class="card-title">Pending Invites</h4> -->
+					<h5 class="card-title">Click to view invites</h5>
 					<div class="col-sm">
 							<table class="table table-bordered">
+								<thead>
+									<tr>
+									<td>Challenge ID</td>
+									<td>User From</td>
+								</tr>
+								</thead>
 								<tbody>
-										<tr *ngFor="let pen of pending; let i = index" (click)="goToChallenge(i)">
+										<!-- <tr *ngFor="let pen of pending; let i = index" (click)="goToChallenge(i)">
 												<td class="btn btn-primary">View Invite #: {{pen.challenge_id}}							</td>
+											</tr> -->
+											<tr *ngFor="let pend of pending" (click)="goToChallenge(i)">
+												<td>{{pend.c_id}}</td>
+												<td>{{pend.u_id1}}</td>
 											</tr>
 								</tbody>
 							</table>

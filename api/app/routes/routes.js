@@ -3,12 +3,11 @@ module.exports = function(app, db) {
   app.get('/register/user', (req, res) => {
     res.send(req.query);
     var user = {
-      first_name: "PLEASE WORK",
+      first_name: req.query.first_name,
       last_name: req.query.last_name,
       pass: req.query.pass,
       email: req.query.email
     };
-    console.log("something cool");
     db.query(`insert into Users
       set ?`, user, (err, pointer) => {
       if(err) throw err;
@@ -135,4 +134,18 @@ module.exports = function(app, db) {
       res.send(nps);
     });
   });
+
+  app.get('/getcompletedchallenges', (req, res) => {
+    db.query(`select * from UserParticipations where u_id = ${req.query.id}`, (err, result) => {
+      if(err) throw err;
+      res.send(result);
+    })
+  });
+
+  app.get('/getpending', (req, res) => {
+    db.query(`select * from UserInvites where u_id2 = ${req.query.id}`, (err, result) => {
+      if(err) throw err;
+      res.send(result);
+    })
+  })
 };

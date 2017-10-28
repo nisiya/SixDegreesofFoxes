@@ -121,16 +121,23 @@ INSERT INTO Non_profits (np_name, np_email, np_pass, summary)
 INSERT INTO Challenges (c_name, user_id, np_id)
 	VALUES ('Help Hounds', 3, 1),
 	       ('Volunteer 10', 4, 3),
-	       ('FundAClass', 1, 2);
+	       ('FundAClass', 1, 1),
+         ('FundADog', 1, 2),
+         ('FundAPet', 1, 3);
 
 INSERT INTO ChallengeActions (c_id, a_id)
 	VALUES (1, 1),
 	       (1, 3),
 	       (2, 1),
-	       (3, 2);
+	       (3, 2),
+         (3, 2),
+         (2, 2),
+         (2, 1),
+         (3, 2);
 
 INSERT INTO UserParticipations(user_id, c_id, a_id, ContrVal)
 	VALUES (4, 1, 1, 10),
+         (1, 2, 1, 10),
 	       (7, 2, 1, 10),
 	       (9, 3, 2, 60),
 	       (6, 3, 2, 7),
@@ -157,6 +164,6 @@ select * from Non_profits;
 select * from Users;
 
 
-Select * from 
+Select * from
 
 Select sum(contrval) from userparticipation where c_id = 1 and a_id = 2 group by c_id, a_id;
