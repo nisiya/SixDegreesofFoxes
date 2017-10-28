@@ -9,6 +9,10 @@ import { AppComponent } from './app.component';
 import { CreateAccUserComponent } from './create-acc-user.component';
 import { CreateAccNPComponent } from './create-acc-np.component';
 
+import { DBService } from './services/db.service';
+import { UserService } from './services/user.service';
+import { NPService } from './services/np.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,8 +22,14 @@ import { CreateAccNPComponent } from './create-acc-np.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    DBService,
+    UserService,
+    NPService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
