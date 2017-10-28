@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+/* .bodybg{
+    position: absolute; 
+    top: 0px; 
+    width: 100%; 
+    background: rgb(0,0,0,0.1);
+    background-size: cover; 
+    background-position: center center; 
+    background-repeat: no-repeat; 
+    height: 100%; 
+    background-image: url('https://static.wixstatic.com/media/07032f_3c2138f6f5074fb490cf532906a8c0ca~mv2_d_4898_3265_s_4_2.jpg/v1/fill/w_1920,h_1280,al_c,q_85,usm_0.66_1.00_0.01/07032f_3c2138f6f5074fb490cf532906a8c0ca~mv2_d_4898_3265_s_4_2.webp');
+} */
+html, body {
+    height:100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  html {
+    /* background:url(https://static.wixstatic.com/media/07032f_3c2138f6f5074fb490cf532906a8c0ca~mv2_d_4898_3265_s_4_2.jpg/v1/fill/w_1920,h_1280,al_c,q_85,usm_0.66_1.00_0.01/07032f_3c2138f6f5074fb490cf532906a8c0ca~mv2_d_4898_3265_s_4_2.webp) no-repeat center center fixed; */
+    background: url(http://ak4.picdn.net/shutterstock/videos/18542354/thumb/3.jpg);
+}
+  
+  body {
+    background:rgba(255,255,255,0.3); /* applies a 50% transparent white background */
+  }
+
+  .card { background-color: rgba(245, 245, 245, 0.7); }
+  
+  .content {
+      padding-top: 15px;
+  }
