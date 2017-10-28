@@ -38,4 +38,7 @@ export class ViewAccUserComponent {
     this.user.selectedCompletedChallenge = this.completed[index];
     this.router.navigate(['view-challenge']);
   }
+  createChallenge = function() {
+    this.router.navigate(['create-challenge']);
+  }
 }

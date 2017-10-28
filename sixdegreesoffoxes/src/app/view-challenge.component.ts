@@ -45,7 +45,9 @@ export class ViewChallengeComponent {
       this. = num.numUsers;
     });*/
 
-
+  }
+  donate = function() {
+    this.router.navigate(['paypal']);
   }
 }
 
