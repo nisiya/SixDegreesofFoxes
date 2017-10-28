@@ -7,11 +7,13 @@ import { FormsModule } from '@angular/forms'; // This module allows us to have t
 
 import { AppComponent } from './app.component';
 import { CreateAccUserComponent } from './create-acc-user.component';
+// import { CreateAccNPComponent } from './create-acc-np.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateAccUserComponent
+    CreateAccUserComponent,
+    // CreateAccNPComponent
   ],
   imports: [
     BrowserModule,
