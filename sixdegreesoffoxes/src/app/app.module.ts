@@ -11,7 +11,7 @@ import { CreateAccNPComponent } from './create-acc-np.component';
 import { CreateChallengeComponent } from './create-challenge.component';
 import { InvitePeopleComponent } from './invite-people.component';
 import { LoginComponent } from './login.component';
-
+import { PaypalComponent } from './paypal.component';
 
 import { DBService } from './services/db.service';
 import { UserService } from './services/user.service';
@@ -24,7 +24,8 @@ import { NPService } from './services/np.service';
     CreateAccNPComponent,
     CreateChallengeComponent,
     LoginComponent,
-    InvitePeopleComponent
+    InvitePeopleComponent,
+    PaypalComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import { CreateAccNPComponent } from './create-acc-np.component';
 import { CreateChallengeComponent } from './create-challenge.component';
 import { InvitePeopleComponent } from './invite-people.component';
 import { LoginComponent } from './login.component';
+import { PaypalComponent } from './paypal.component';
 
 //The different routes correspond to different components to load based on the route selected
 const appRoutes: Routes = [
@@ -16,7 +17,8 @@ const appRoutes: Routes = [
   { path: 'create-acc-np', component: CreateAccNPComponent },
   { path: 'create-challenge', component: CreateChallengeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'invite-people', component: InvitePeopleComponent }      
+  { path: 'invite-people', component: InvitePeopleComponent }  
+  { path: 'paypal', component: PaypalComponent}    
 ];
 
 @NgModule({
