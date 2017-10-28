@@ -21,12 +21,29 @@ html, body {
     background: url(http://ak4.picdn.net/shutterstock/videos/18542354/thumb/3.jpg);
 }
   
-  body {
-    background:rgba(255,255,255,0.3); /* applies a 50% transparent white background */
-  }
+body {
+background:rgba(255,255,255,0.3); /* applies a 50% transparent white background */
+}
 
-  .card { background-color: rgba(245, 245, 245, 0.7); }
-  
-  .content {
-      padding-top: 15px;
-  }
+.card { background-color: rgba(245, 245, 245, 0.7); }
+
+.content {
+    padding-top: 15px;
+}
+
+.form-control{
+    width: 400px;
+}
+/* 
+label {
+    font-size: 20px;
+    font-weight: bold;
+} */
+
+.row{
+    padding-bottom: 20px;
+}
+
+h1{
+    margin: auto;
+}
