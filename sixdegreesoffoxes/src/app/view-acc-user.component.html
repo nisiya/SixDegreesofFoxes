@@ -3,56 +3,91 @@
 </h1>
 <div class="container">
 	<div class="row">
-		<h2 id="userName">{{name}}'s Profile</h2>
+		<h2 id="userName" class="mx-auto">{{name}}'s Profile</h2>
 	</div>
 	<div class="container">
+			<div class="row">
+					<div class="col-sm">
+							<div class="card bg-light mb-3" style="max-width: 50rem;">
+									<div class="card-header">Achievements Challenges</div>
+									<div class="card-body">
+									  <!-- <h4 class="card-title">Completed Challenges</h4> -->
+									  <table class="table table-bordered">
+											<tbody>
+												<tr style="text-align:center;">
+													<td id="challenge"><img src="http://icons.iconarchive.com/icons/seanau/fresh-web/512/Badge-icon.png" alt="Smiley face" height="150" width="150"></td>
+													<td id="val"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Circle-icons-trophy.svg/1024px-Circle-icons-trophy.svg.png" alt="Smiley face" height="150" width="150"></td>
+												</tr>
+											</tbody>
+										</table>						</div>
+								  </div>
+					</div>
+				</div>
 	<div class="row">
 		<div class="col-sm">
-			<table class="table table-bordered">
-				<thead>
-					<tr>
-						<th>Challenge</th>
-						<th>Value</th>
-						<th>Degree</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td id="challenge"></td>
-						<td id="val"></td>
-						<td id="degree"></td>
-					</tr>
-				</tbody>
-			</table>
+				<div class="card bg-light mb-3" style="max-width: 50rem;">
+						<div class="card-header">Completed Challenges</div>
+						<div class="card-body">
+						  <!-- <h4 class="card-title">Completed Challenges</h4> -->
+						  <table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>Challenge</th>
+										<th>Non-Profit</th>
+										<th>Degree After</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td id="challenge">ALS Challenge</td>
+										<td id="val">ALS</td>
+										<td id="degree">3</td>
+									</tr>
+									<tr>
+										<td id="challenge">Animal Challenge</td>
+										<td id="val">Animal Shelter</td>
+										<td id="degree">6</td>
+									</tr>
+								</tbody>
+							</table>						</div>
+					  </div>
 		</div>
-		<div class="col-sm">
-			<table class="table table-bordered">
-				<thead>
-					<tr>
-						<th>Pending Invites</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr *ngFor="let pen of pending; let i = index" (click)="goToChallenge(i)">
-						<td>{{pen.challenge_id}}</td>
-					</tr>
-				</tbody>
-			</table>	
+	</div>
+		<div class="row">
+		<div class="col-sm">						
+		<div class="card bg-light mb-3" style="max-width: 50rem;">
+				<div class="card-header">Pending Challenges</div>
+				<div class="card-body">
+					<!-- <h4 class="card-title">Pending Invites</h4> -->
+					<div class="col-sm">
+							<table class="table table-bordered">
+								<tbody>
+										<tr *ngFor="let pen of pending; let i = index" (click)="goToChallenge(i)">
+												<td class="btn btn-primary">View Invite #: {{pen.challenge_id}}							</td>
+											</tr>
+								</tbody>
+							</table>	
+						</div>		
+					</div>
 		</div>
-		<div class="col-sm">
-				<table class="table table-bordered">
-					<thead>
-						<tr>
-							<th>Completed Invites</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr *ngFor="let comp of completed; let i = index" (click)="goToChallenge(i)">
-							<td>{{comp.challenge_id}}</td>
-						</tr>
-					</tbody>
-				</table>	
+		</div>
+		<!-- <div class="col-sm">
+				<div class="card bg-light mb-3" style="max-width: 20rem;">
+		<div class="card-header"></div>
+		<div class="card-body">
+				<h4 class="card-title">Completed Invites</h4>				
+			<div class="col-sm">
+					<table class="table table-bordered">
+						<tbody>
+							<tr *ngFor="let comp of completed; let i = index" (click)="goToChallenge(i)">
+								<td class="btn btn-primary">View Invite# :{{comp.challenge_id}}</td>
+							</tr>
+						</tbody>
+					</table>	
+				</div>		
 			</div>
+		</div>
+		</div> -->
 	</div>
 
 	</div>
