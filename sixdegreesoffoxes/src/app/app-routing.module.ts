@@ -16,7 +16,7 @@ const appRoutes: Routes = [
   { path: '', redirectTo: '/create-acc-user', pathMatch: 'full' },
   { path: 'create-acc-user', component: CreateAccUserComponent },
   { path: 'view-acc-user', component: ViewAccUserComponent },
-  { path: 'view-challenge', component: ViewChallengeComponent }
+  { path: 'view-challenge', component: ViewChallengeComponent },
   { path: 'create-acc-np', component: CreateAccNPComponent },
   { path: 'create-challenge', component: CreateChallengeComponent },
   { path: 'login', component: LoginComponent },

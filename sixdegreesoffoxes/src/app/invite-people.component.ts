@@ -7,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class InvitePeopleComponent {
-  title = 'app';
+  private email1: String;
+  private email2: String;
+  private email3: String;
+  private email4: String;
+  private email5: String;
+  private email6: String;
+  private c_name: String;
 }
