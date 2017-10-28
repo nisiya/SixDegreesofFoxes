@@ -1,9 +1,9 @@
-<h1>
-	Resgister Organization Account
-</h1>
 <div class="container">
+	<h1>
+			Resgister Organization Account
+	</h1>
 	<div class="row">
-		<form role="form">
+		<form id="create_acc_np_form" class="mx-auto center-text" role="form">
 			<fieldset>
 			<div class="form-group">
 			<label for="np_name">Organization Name</label>	
@@ -21,6 +21,10 @@
 			<div class="form-group">
 				<label for="np_pass">Password</label>
 				<input type="password" [(ngModel)]="this.np_pass" class="form-control" id="np_pass" placeholder="Enter a password">
+			</div>
+			<div class="form-group">
+					<label for="np_pass_conf">Confirm Password</label>
+					<input type="password" class="form-control" id="np_pass_conf" placeholder="Confirm the password">
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</fieldset>			
