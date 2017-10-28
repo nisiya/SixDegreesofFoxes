@@ -7,17 +7,29 @@ import { FormsModule } from '@angular/forms'; // This module allows us to have t
 
 import { AppComponent } from './app.component';
 import { CreateAccUserComponent } from './create-acc-user.component';
+import { CreateAccNPComponent } from './create-acc-np.component';
+
+import { DBService } from './services/db.service';
+import { UserService } from './services/user.service';
+import { NPService } from './services/np.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateAccUserComponent
+    CreateAccUserComponent,
+    CreateAccNPComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    DBService,
+    UserService,
+    NPService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
