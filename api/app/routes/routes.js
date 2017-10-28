@@ -10,7 +10,7 @@ module.exports = function(app, db) {
       (first_name, last_name, email, pass) values (
       '${user.fname}', '${user.lname}', '${user.email}', '${user.password}')`, (err, pointer) => {
       if(err) throw err;
-      res.send('redirect here, you\'re successful');
+      res.send(user);
     });
   });
 
@@ -59,9 +59,17 @@ module.exports = function(app, db) {
   });
 
   // create a challenge
-  // app.post('/challenge', (req, res) => {
-  //   const challenge = req.body;
-  //   //
-  // });
+  app.post('/challenge', (req, res) => {
+    const challenge = req.body;
+    // Challenge, challenge action, action
+  });
+
+
+  app.get('/nps', (req, res) => {
+    db.query(`select * from Non_profits`, (err, pointer) => {
+      if(err) throw err;
+      res.send(pointer);
+    });
+  });
 
 };
