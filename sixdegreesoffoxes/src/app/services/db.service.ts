@@ -57,6 +57,18 @@ export class DBService {
         .then(response => response.json()　as Object)
         .catch(this.handleError);
     }
+
+    getNonProfits(): Promise<any> {
+        let getnps = this.url + '/getnps';
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        let params = new URLSearchParams();
+        let options = new RequestOptions({headers: headers, search: params});
+        return this.http.get(getnps, options)
+        .toPromise()
+        .then(response => response.json()　as Object)
+        .catch(this.handleError); 
+    }
         
 
     // /**
