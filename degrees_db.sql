@@ -63,16 +63,16 @@ ALTER TABLE ChallengeActions
     ADD FOREIGN KEY (a_id) REFERENCES Actions (a_id);
 
 CREATE TABLE IF NOT EXISTS UserInvites(
-    u_id1 INT,
-    u_id2 INT,
+    user_id1 INT,
+    user_id2 INT,
     c_id INT,
     PRIMARY KEY (u_id1, u_id2, c_id)
 );
 
 ALTER TABLE UserInvites
-    ADD FOREIGN KEY (u_id1) REFERENCES Users (user_id);
+    ADD FOREIGN KEY (user_id1) REFERENCES Users (user_id);
 ALTER TABLE UserInvites
-    ADD FOREIGN KEY (u_id2) REFERENCES Users (user_id);
+    ADD FOREIGN KEY (user_id2) REFERENCES Users (user_id);
 ALTER TABLE UserInvites
     ADD FOREIGN KEY (c_id) REFERENCES Challenges (c_id);
 
@@ -145,7 +145,7 @@ INSERT INTO UserParticipations(user_id, c_id, a_id, ContrVal)
          (2, 4, 2, 1),
          (4, 4, 2, 3);
 
-INSERT INTO UserInvites(u_id1, u_id2, c_id)
+INSERT INTO UserInvites(user_id1, user_id2, c_id)
 	VALUES (2, 4, 2),
 	       (1, 8, 3),
 	       (6, 3, 2),
