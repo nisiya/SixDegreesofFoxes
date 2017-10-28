@@ -1,0 +1,59 @@
+<h1>
+	View Profile
+</h1>
+<div class="container">
+	<div class="row">
+		<h2 id="userName">{{name}}'s Profile</h2>
+	</div>
+	<div class="container">
+	<div class="row">
+		<div class="col-sm">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Challenge</th>
+						<th>Value</th>
+						<th>Degree</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td id="challenge"></td>
+						<td id="val"></td>
+						<td id="degree"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-sm">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Pending Invites</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let pen of pending; let i = index" (click)="goToChallenge(i)">
+						<td>{{pen.challenge_id}}</td>
+					</tr>
+				</tbody>
+			</table>	
+		</div>
+		<div class="col-sm">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Completed Invites</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let comp of completed; let i = index" (click)="goToChallenge(i)">
+							<td>{{comp.challenge_id}}</td>
+						</tr>
+					</tbody>
+				</table>	
+			</div>
+	</div>
+
+	</div>
+</div>

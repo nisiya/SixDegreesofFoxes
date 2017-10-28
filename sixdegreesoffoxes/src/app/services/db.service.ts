@@ -25,6 +25,19 @@ export class DBService {
         .catch(this.handleError);
     }
 
+    getUser(id): Promise<any> {
+        let route = this.url + '/get/user';
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        let params = new URLSearchParams();
+        params.set('id', id);
+        let options = new RequestOptions({headers: headers, search: params});
+        return this.http.get(id, options)
+        .toPromise()
+        .then(response => response.json()　as Object)
+        .catch(this.handleError);
+    }
+
     registerNP(name, email, summary, password): Promise<any> {
         console.log(name + email + summary + password);
         console.log("Performing GET");
@@ -49,8 +62,8 @@ export class DBService {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let params = new URLSearchParams();
-        params.set('username', email);
-        params.set('password', password);
+        params.set('email', email);
+        params.set('pass', password);
         let options = new RequestOptions({headers: headers, search: params});
         return this.http.get(login, options)
         .toPromise()
@@ -82,6 +95,19 @@ export class DBService {
         .catch(this.handleError); 
     }
 
+    getChallenge(id): Promise<any> {
+        let getchallenges = this.url + '/getchallenges';
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        let params = new URLSearchParams();
+        params.set('id', id);
+        let options = new RequestOptions({headers: headers, search: params});
+        return this.http.get(getchallenges, options)
+        .toPromise()
+        .then(response => response.json()　as Object)
+        .catch(this.handleError); 
+    }
+
     getChallenges(): Promise<any> {
         let getchallenges = this.url + '/getchallenges';
         let headers = new Headers();
@@ -94,7 +120,7 @@ export class DBService {
         .catch(this.handleError); 
     }
 
-    getCompletedChallenges(): Promise<any> {
+    getCompletedChallenges(id): Promise<any> {
         let getcompletedchallenges = this.url + '/getcompletedchallenges';
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
@@ -106,16 +132,33 @@ export class DBService {
         .catch(this.handleError); 
     }
 
-    getChallenge(): Promise<any> {
-        let getchallenge = this.url + '/getchallenge';
+    //todo
+    getPending(id): Promise<any> {
+        let getpending = this.url + '/getpending';
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let params = new URLSearchParams();
         let options = new RequestOptions({headers: headers, search: params});
-        return this.http.get(getchallenge, options)
+        return this.http.get(getpending, options)
         .toPromise()
         .then(response => response.json()　as Object)
         .catch(this.handleError); 
+    }
+
+    createChallenge(nonprofit, name, actions): Promise<any> {
+        console.log(nonprofit + name + actions);
+        let createchallenge = this.url + '/challenge';
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        let params = new URLSearchParams();
+        params.set('nonprofit', nonprofit);
+        params.set('name', name);
+        params.set('actions', actions);
+        let options = new RequestOptions({headers: headers, search: params});
+        return this.http.get(createchallenge, options)
+        .toPromise()
+        .then(response => response.json()　as Object)
+        .catch(this.handleError);
     }
 
         
