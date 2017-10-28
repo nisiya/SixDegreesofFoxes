@@ -1,15 +1,33 @@
 module.exports = function(app, db) {
 
-  app.get('/', (req, res) => {
-    res.send('hello world');
-  });
-
-  app.post('/register/user', (req, res) => {
-    const user = req.query;
+  app.get('/register/user', (req, res) => {
+    res.send(req.query);
+    var user = {
+      first_name: "PLEASE WORK",
+      last_name: req.query.last_name,
+      pass: req.query.pass,
+      email: req.query.email
+    };
+    console.log("something cool");
     db.query(`insert into Users
       set ?`, user, (err, pointer) => {
       if(err) throw err;
-      res.send(`${pointer.insertId}`);
+      res.send("somethingf");
+    });
+  });
+
+  app.post('/register/user', (req, res) => {
+    console.log(req.query);
+    var user = {
+      first_name: "PLEASE WORK",
+      last_name: req.query.last_name,
+      pass: req.query.pass,
+      email: req.query.email
+    };
+    db.query(`insert into Users
+      set ?`, user, (err, pointer) => {
+      if(err) throw err;
+      res.send("somethingf");
     });
   });
 

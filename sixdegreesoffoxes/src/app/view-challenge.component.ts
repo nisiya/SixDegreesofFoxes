@@ -18,19 +18,32 @@ export class ViewChallengeComponent {
   id: number; //challenge id number
 
   private actions: Array<Object> = [{"action_name":"Donate money"}, {"action_name":"Volunteer"}]; //array of form data
-  private nonprofits: Array<Object> = [{ "np_name":"hi" }];
+  //private actionTotals: Array<Object> = [{"action_name":"Donate money"}, {"action_name":"Volunteer"}]; //array of form data
   constructor(private router: Router, private db: DBService) {
     // Get list of NP
     // Get list of actions
 
-    this.db.getChallenge(this.id).then(results => {
-      this.actions = results.actions;
-      this.np_id = results.np_id;
-      this.chal_name = results.chal_name;
-    });
+    // this.db.getChallenge(this.id).then(results => {
+    //   this.actions = results.actions;
+    //   this.np_id = results.np_id;
+    //   this.chal_name = results.chal_name;
+    // });
+    //
+    // this.db.getNonProfit(this.np_id).then(name => {
+    //   this.nonprofit = name.nonprofit;
+    // });
+    //
+    // this.db.getTotalUsers().then(num => {
+    //   this.numUsers = num.numUsers;
+    // });
 
-    //this.db.getNonProfit(this.np_id).then(name => {
-      //this.nonprofit = name.nonprofit;
-    //});
+    /*this needs wor
+    this.db.getActionTotals().then(totals => {
+      this. = num.numUsers;
+    });*/
+
+
   }
 }
+
+//need to populate table in html somehow

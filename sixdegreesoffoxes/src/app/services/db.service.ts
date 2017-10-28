@@ -9,15 +9,20 @@ export class DBService {
     constructor(private http: Http){}
 
     registerUser(first_name, last_name, email, password): Promise<any> {
-        console.log(name + email + password);
-        console.log("Performing GET");
         let register_user = this.url + '/register/user';
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
+        var body = {
+          "first_name":first_name,
+          "last_name":last_name,
+          "pass":password,
+          "email":email
+        };
         let params = new URLSearchParams();
-        params.set('username', name);
-        params.set('password', password);
-        params.set('email', name);
+        params.set('first_name', first_name);
+        params.set('last_name', last_name);
+        params.set('pass', password);
+        params.set('email', email);
         let options = new RequestOptions({headers: headers, search: params});
         return this.http.get(register_user, options)
         .toPromise()
@@ -80,7 +85,7 @@ export class DBService {
         return this.http.get(getnps, options)
         .toPromise()
         .then(response => response.json()　as Object)
-        .catch(this.handleError); 
+        .catch(this.handleError);
     }
 
     getActions(): Promise<any> {
@@ -92,7 +97,7 @@ export class DBService {
         return this.http.get(getactions, options)
         .toPromise()
         .then(response => response.json()　as Object)
-        .catch(this.handleError); 
+        .catch(this.handleError);
     }
 
     getChallenge(id): Promise<any> {
@@ -105,7 +110,7 @@ export class DBService {
         return this.http.get(getchallenges, options)
         .toPromise()
         .then(response => response.json()　as Object)
-        .catch(this.handleError); 
+        .catch(this.handleError);
     }
 
     getChallenges(): Promise<any> {
@@ -117,7 +122,7 @@ export class DBService {
         return this.http.get(getchallenges, options)
         .toPromise()
         .then(response => response.json()　as Object)
-        .catch(this.handleError); 
+        .catch(this.handleError);
     }
 
     getCompletedChallenges(id): Promise<any> {
@@ -129,7 +134,7 @@ export class DBService {
         return this.http.get(getcompletedchallenges, options)
         .toPromise()
         .then(response => response.json()　as Object)
-        .catch(this.handleError); 
+        .catch(this.handleError);
     }
 
     //todo
@@ -142,7 +147,7 @@ export class DBService {
         return this.http.get(getpending, options)
         .toPromise()
         .then(response => response.json()　as Object)
-        .catch(this.handleError); 
+        .catch(this.handleError);
     }
 
     createChallenge(nonprofit, name, actions): Promise<any> {
@@ -161,7 +166,7 @@ export class DBService {
         .catch(this.handleError);
     }
 
-        
+
 
     // /**
     //  * Performs a GET from the users table
@@ -184,7 +189,7 @@ export class DBService {
 
     // /**
     //  * Performs an upload of a photo to the database, taking in a file and a filter
-    //  * @param file 
+    //  * @param file
     //  */
     // uploadPhoto(file: File, style: Object): Promise<any> {
     //     console.log("WEB: Performing POST of photo");
@@ -221,7 +226,7 @@ export class DBService {
 
     // /**
     //  * Performs a search on the users by looking at user's full names
-    //  * @param searchString 
+    //  * @param searchString
     //  */
     // searchUsers(searchString){
     //     console.log("Performing GET of users with " + searchString);
