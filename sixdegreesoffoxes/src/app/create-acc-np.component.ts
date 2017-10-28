@@ -14,8 +14,10 @@ export class CreateAccNPComponent {
   private np_summary: String;
   private np_email: String;
   private np_pass: String;
+  private np_pass_conf: String;
   constructor(private router: Router, private db: DBService) {}
   login = function() {
+    // TODO: verify password
     // Do database call to check if user exists in the database
     this.db.registerNP(this.np_name, this.np_email, this.np_summary, this.np_pass).then(np => {
     });

@@ -9,8 +9,8 @@
 			<fieldset>
 			<div class="form-group">
 			<label for="np_name"> Non-profit</label>
-				<select class="form-control form-control-sm">
-					<option>Small select</option>
+				<select id="np_name" name="np_name" [(ngModel)]="nonprofit" class="form-control form-control-sm" data-placement="bottom" title={{test}}>
+					<option *ngFor="let np of nonprofits" [ngValue]="np">{{np.np_name}}</option> 
 				</select>
 			</div>
 			<div class="form-group">
@@ -20,9 +20,9 @@
 			</div>
 			<div class="form-group">
 					<label for="actions">Actions</label>
-					<select multiple class="form-control" id="actions">
-					  <option>Donate Money</option>
-					  <option>Volunteer</option>
+					<select multiple class="form-control" id="selected_actions" [(ngModel)]="selected_actions">
+						<option *ngFor="let action of actions">{{action.action_name}}</option> 
+						<!-- [ngValue]="action" [value]="action" -->
 					</select>
 			</div>
 			<div class="form-group">
