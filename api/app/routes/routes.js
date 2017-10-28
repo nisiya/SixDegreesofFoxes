@@ -61,7 +61,25 @@ module.exports = function(app, db) {
   // create a challenge
   app.post('/challenge', (req, res) => {
     const challenge = req.body;
-    db.query()
+    // array of aids actions required of the challenge
+    // name the name of the challenge
+    // npid the non profit the challenge is for
+    // uid user created it
+    challenge.aids = JSON.parse(challenge.aids);
+    db.query(`insert into Challenges (c_name, u_id, np_id)
+    values ('${challenge.name}', '${challenge.uid}', '${challenge.npid}')`, (err, dbChallenge) => {
+      if(err) throw err;
+      // add the actions related to the challenge
+      let qString = "";
+      for(var i = 0; i < challenge.aids.length; i++) {
+        qString += `insert into ChallengeActions (c_id, a_id) values (${dbChallenge.insertId}, ${challenge.aids[i]}); `;
+      }
+      db.query(qString, (err, results) => {
+        if(err) throw err;
+        // just sends the results
+        res.send(dbChallenge);
+      });
+    });
   });
 
   app.get('/actions', (req, res) => {
