@@ -9,19 +9,22 @@ export class DBService {
     constructor(private http: Http){}
 
     registerUser(first_name, last_name, email, password): Promise<any> {
-        console.log(first_name + last_name + email + password);
-        console.log("Performing GET");
         let register_user = this.url + '/register/user';
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
+        var body = {
+          "first_name":first_name,
+          "last_name":last_name,
+          "pass":password,
+          "email":email
+        };
         let params = new URLSearchParams();
         params.set('first_name', first_name);
         params.set('last_name', last_name);
         params.set('pass', password);
         params.set('email', email);
         let options = new RequestOptions({headers: headers, search: params});
-        console.log(options);
-        return this.http.post(register_user, options)
+        return this.http.get(register_user, options)
         .toPromise()
         .then(response => response.json()　as Object)
         .catch(this.handleError);
