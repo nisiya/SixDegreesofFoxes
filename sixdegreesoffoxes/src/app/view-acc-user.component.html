@@ -39,7 +39,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr *ngFor="let comp of completed">
+									<tr *ngFor="let comp of completed; let i = index;" (click)="goToCompletedChallenge(i)">
 										<td>{{comp.c_id}}</td>
 										<td>{{comp.user_id}}</td>
 										<td>{{comp.a_id}}</td>
@@ -78,7 +78,7 @@
 										<!-- <tr *ngFor="let pen of pending; let i = index" (click)="goToChallenge(i)">
 												<td class="btn btn-primary">View Invite #: {{pen.challenge_id}}							</td>
 											</tr> -->
-											<tr *ngFor="let pend of pending" (click)="goToChallenge(i)">
+											<tr *ngFor="let pend of pending; let i = index" (click)="goToPendingChallenge(i)">
 												<td>{{pend.c_id}}</td>
 												<td>{{pend.u_id1}}</td>
 											</tr>

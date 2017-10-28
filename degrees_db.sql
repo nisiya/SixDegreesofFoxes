@@ -1,9 +1,8 @@
---#create database
+
 DROP DATABASE IF EXISTS degrees_db;
 CREATE DATABASE degrees_db;
 USE degrees_db;
 
---#drop tables
 DROP TABLE IF EXISTS Users;
 DROP TABLE IF EXISTS Non_profits;
 DROP TABLE IF EXISTS Challenges;
@@ -36,14 +35,12 @@ CREATE TABLE IF NOT EXISTS Challenges(
     c_name VARCHAR(255),
     user_id INT,
     np_id INT,
-    PRIMARY KEY (c_id)
-    UNIQUE (c_name);
+    PRIMARY KEY (c_id),
+    UNIQUE (c_name)
 );
 
 ALTER TABLE Challenges
     ADD FOREIGN KEY (user_id) REFERENCES Users (user_id);
-ALTER TABLE Challenges
-    ADD FOREIGN KEY (a_id) REFERENCES Actions (a_id);
 
 CREATE TABLE IF NOT EXISTS Actions(
     a_id INT AUTO_INCREMENT,
@@ -51,6 +48,7 @@ CREATE TABLE IF NOT EXISTS Actions(
     val INT,
     PRIMARY KEY (a_id)
 );
+
 CREATE TABLE IF NOT EXISTS ChallengeActions(
     c_id INT,
     a_id INT,
@@ -66,7 +64,7 @@ CREATE TABLE IF NOT EXISTS UserInvites(
     user_id1 INT,
     user_id2 INT,
     c_id INT,
-    PRIMARY KEY (u_id1, u_id2, c_id)
+    PRIMARY KEY (user_id1, user_id2, c_id)
 );
 
 ALTER TABLE UserInvites
@@ -89,8 +87,7 @@ ALTER TABLE UserParticipations
 ALTER TABLE UserParticipations
     ADD FOREIGN KEY (c_id) REFERENCES Challenges (c_id);
 ALTER TABLE UserParticipations
-    ADD FOREIGN KEY (a_id) REFERENCES Actions (c_id);
-
+    ADD FOREIGN KEY (a_id) REFERENCES Challenges (a_id);
 
 INSERT INTO Users (first_name, last_name, user_email, user_pass)
     VALUES('Kai', 'Wong', 'kai.wong1@marist.edu', 'kaiWong1'),

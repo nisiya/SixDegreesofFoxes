@@ -3,6 +3,7 @@ import { RouterModule, Routes, Router } from '@angular/router';
 
 import { DBService } from './services/db.service';
 import { NPService } from './services/np.service';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'view-challenge',
@@ -17,25 +18,26 @@ export class ViewChallengeComponent {
   private numUsers: Number;
   id: number; //challenge id number
 
+  challenge: any;
+
   private actions: Array<Object> = [{"action_name":"Donate money"}, {"action_name":"Volunteer"}]; //array of form data
   //private actionTotals: Array<Object> = [{"action_name":"Donate money"}, {"action_name":"Volunteer"}]; //array of form data
-  constructor(private router: Router, private db: DBService) {
-    // Get list of NP
-    // Get list of actions
+  constructor(private router: Router, private db: DBService, private user: UserService) {
+    // Take challenge id
+    var challenge;
+    if(this.user.selectedPendingChallenge == null) {
+      challenge = this.user.selectedCompletedChallenge;
+    }
+    else {
+      challenge = this.user.selectedPendingChallenge;
+    }
+    console.log(challenge);
 
-    // this.db.getChallenge(this.id).then(results => {
-    //   this.actions = results.actions;
-    //   this.np_id = results.np_id;
-    //   this.chal_name = results.chal_name;
-    // });
-    //
-    // this.db.getNonProfit(this.np_id).then(name => {
-    //   this.nonprofit = name.nonprofit;
-    // });
-    //
-    // this.db.getTotalUsers().then(num => {
-    //   this.numUsers = num.numUsers;
-    // });
+    // Based on challenge id, get that challenge
+
+    this.db.getChallenge(challenge.c_id).then(results => {
+      console.log(results);
+    })
 
     /*this needs wor
     this.db.getActionTotals().then(totals => {

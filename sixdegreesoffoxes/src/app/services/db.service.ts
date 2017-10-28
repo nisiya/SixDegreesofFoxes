@@ -101,13 +101,13 @@ export class DBService {
     }
 
     getChallenge(id): Promise<any> {
-        let getchallenges = this.url + '/getchallenges';
+        let getchallenge = this.url + '/getchallenge';
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let params = new URLSearchParams();
         params.set('id', id);
         let options = new RequestOptions({headers: headers, search: params});
-        return this.http.get(getchallenges, options)
+        return this.http.get(getchallenge, options)
         .toPromise()
         .then(response => response.json()　as Object)
         .catch(this.handleError);

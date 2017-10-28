@@ -30,7 +30,12 @@ export class ViewAccUserComponent {
     // this.pending = [{"challenge_id":"3"}];
     // this.completed = [{"challenge_id":"5"}];
   }
-  goToChallenge = function(index) {
+  goToPendingChallenge = function(index) {
+    this.user.selectedPendingChallenge = this.pending[index];
+    this.router.navigate(['view-challenge']);
+  }
+  goToCompletedChallenge = function(index) {
+    this.user.selectedCompletedChallenge = this.completed[index];
     this.router.navigate(['view-challenge']);
   }
 }
