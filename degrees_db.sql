@@ -86,8 +86,6 @@ ALTER TABLE UserParticipations
     ADD FOREIGN KEY (user_id) REFERENCES Users (user_id);
 ALTER TABLE UserParticipations
     ADD FOREIGN KEY (c_id) REFERENCES Challenges (c_id);
-ALTER TABLE UserParticipations
-    ADD FOREIGN KEY (a_id) REFERENCES Challenges (a_id);
 
 INSERT INTO Users (first_name, last_name, user_email, user_pass)
     VALUES('Kai', 'Wong', 'kai.wong1@marist.edu', 'kaiWong1'),
@@ -163,7 +161,7 @@ INSERT INTO UserInvites(user_id1, user_id2, c_id)
          (6, 9, 4),
          (4, 7, 4);
 
-Select * from UserInvites;
+/* Select * from UserInvite *//* s;
 Select * from UserParticipation;
 Select * from ChallengeActions;
 
@@ -176,4 +174,4 @@ select * from Users;
 
 Select * from
 
-Select sum(contrval) from userparticipation where c_id = 1 and a_id = 2 group by c_id, a_id;
+Select sum(contrval) from userpa *//* rticipation where c_id = 1 and a_id = 2 group by c_id, a_id; */

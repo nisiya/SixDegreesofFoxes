@@ -37,6 +37,7 @@ export class ViewChallengeComponent {
 
     this.db.getChallenge(challenge.c_id).then(results => {
       console.log(results);
+      
     })
 
     /*this needs wor
