@@ -8,6 +8,7 @@ const port = 8000;
 // allows us to parse body of request
 app.use(express.urlencoded({extended: true}));
 
+// remove the .example from db.js and customize to your specs
 const mysql = mysql_client.createConnection(require('./app/config/db.js'));
 mysql.connect((err) => {
   if(err) { throw err; }

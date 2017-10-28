@@ -5,8 +5,13 @@ module.exports = function(app, db) {
   });
 
   app.post('/register/user', (req, res) => {
-    console.log(req.body);
-    res.send('thanks for the request.');
+    const user = req.body;
+    db.query(`insert into Users
+      (first_name, last_name, email, pass) values (
+      '${user.fname}', '${user.lname}', '${user.email}', '${user.password}')`, (err, pointer) => {
+      if(err) throw err;
+      res.send('redirect here, you\'re successful');
+    });
   });
 
 };
