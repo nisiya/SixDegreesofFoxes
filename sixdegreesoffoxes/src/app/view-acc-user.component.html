@@ -30,17 +30,29 @@
 				<thead>
 					<tr>
 						<th>Pending Invites</th>
-						<th>Completed Invites</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td id="pend"></td>
-						<td id="compl"></td>
+					<tr *ngFor="let pen of pending; let i = index" (click)="goToChallenge(i)">
+						<td>{{pen.challenge_id}}</td>
 					</tr>
 				</tbody>
 			</table>	
 		</div>
+		<div class="col-sm">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Completed Invites</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let comp of completed; let i = index" (click)="goToChallenge(i)">
+							<td>{{comp.challenge_id}}</td>
+						</tr>
+					</tbody>
+				</table>	
+			</div>
 	</div>
 
 	</div>

@@ -15,6 +15,7 @@ export class ViewChallengeComponent {
   private np_id: String;
   private np_name: String;
   private numUsers: Number;
+  id: number; //challenge id number
 
   private actions: Array<Object> = [{"action_name":"Donate money"}, {"action_name":"Volunteer"}]; //array of form data
   private nonprofits: Array<Object> = [{ "np_name":"hi" }];
@@ -22,7 +23,7 @@ export class ViewChallengeComponent {
     // Get list of NP
     // Get list of actions
 
-    this.db.getChallenge().then(results => {
+    this.db.getChallenge(this.id).then(results => {
       this.actions = results.actions;
       this.np_id = results.np_id;
       this.chal_name = results.chal_name;
