@@ -19,7 +19,7 @@ export class CreateAccUserComponent {
     console.log(this.first_name);
     // Do database call to check if user exists in the database
     this.db.registerUser(this.first_name, this.last_name, this.email, this.password).then(userId => {
-      this.router.navigate(['login']);
+      this.router.navigate(['view-acc-user']);
     });
   }
 }

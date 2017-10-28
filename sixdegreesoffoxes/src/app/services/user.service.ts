@@ -4,8 +4,8 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class UserService {
     public isLoggedIn: boolean = false;
-    public id: number;
-    public name: String = "bob";
+    public id: number = 3;
+    public name: String = "Bob";
     public email: String;
     public constructor(){
         // If the user reloads the page, keep them logged in
