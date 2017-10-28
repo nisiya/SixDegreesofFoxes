@@ -1,0 +1,36 @@
+<div class="container">
+	<div class="row">
+			<h1>
+					Create Challenge
+			</h1>
+	</div>
+	<div class="row">
+		<form id="create_acc_user_form" class="mx-auto" role="form">
+			<fieldset>
+			<div class="form-group">
+			<label for="np_name"> Non-profit</label>
+				<select id="np_name" name="np_name" [(ngModel)]="nonprofit" class="form-control form-control-sm" data-placement="bottom" title={{test}}>
+					<option *ngFor="let np of nonprofits" [ngValue]="np">{{np.np_name}}</option> 
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="c_name">Challenge Name</label>
+				<input type="text" [(ngModel)]="this.c_name" name="c_name" class="form-control" id="c_name" varia-describedby="challengenameHelp" placeholder="Enter challenge name">
+				<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+			</div>
+			<div class="form-group">
+					<label for="actions">Actions</label>
+					<select multiple class="form-control" id="selected_actions" [(ngModel)]="selected_actions" [ngModelOptions]="{standalone: true}">
+						<option *ngFor="let action of actions">{{action.action_name}}</option> 
+						<!-- [ngValue]="action" [value]="action" -->
+					</select>
+			</div>
+			<div class="form-group">
+				<label for="action_value">Password</label>
+				<input type="text" class="form-control" id="action_value" placeholder="Enter amount of dollars">
+			</div>
+			<button type="submit" class="btn btn-primary" (click)="this.submit()">Submit</button>
+		</fieldset>
+		</form>
+	</div>
+</div>

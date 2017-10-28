@@ -1,0 +1,11 @@
+.nav-link {
+      padding-right: .5rem !important;
+      padding-left: .5rem !important;
+}
+.navbar-brand{
+		padding-left: 3mm;
+}
+body{
+      position: absolute; top: 0px; width: 100%; background-size: cover; background-position: center center; background-repeat: no-repeat; height: 100%; 
+      background-image: #000000 url(background.jpg);
+}

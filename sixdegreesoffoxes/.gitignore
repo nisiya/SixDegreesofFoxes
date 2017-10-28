@@ -40,3 +40,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+#config stuff, don't want our password on vc
+/app/config/db.js
