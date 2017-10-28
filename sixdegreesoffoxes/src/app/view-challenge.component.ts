@@ -23,19 +23,19 @@ export class ViewChallengeComponent {
     // Get list of NP
     // Get list of actions
 
-    this.db.getChallenge(this.id).then(results => {
-      this.actions = results.actions;
-      this.np_id = results.np_id;
-      this.chal_name = results.chal_name;
-    });
-
-    this.db.getNonProfit(this.np_id).then(name => {
-      this.nonprofit = name.nonprofit;
-    });
-
-    this.db.getTotalUsers().then(num => {
-      this.numUsers = num.numUsers;
-    });
+    // this.db.getChallenge(this.id).then(results => {
+    //   this.actions = results.actions;
+    //   this.np_id = results.np_id;
+    //   this.chal_name = results.chal_name;
+    // });
+    //
+    // this.db.getNonProfit(this.np_id).then(name => {
+    //   this.nonprofit = name.nonprofit;
+    // });
+    //
+    // this.db.getTotalUsers().then(num => {
+    //   this.numUsers = num.numUsers;
+    // });
 
     /*this needs wor
     this.db.getActionTotals().then(totals => {
