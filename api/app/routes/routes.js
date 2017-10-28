@@ -136,7 +136,7 @@ module.exports = function(app, db) {
   });
 
   app.get('/getcompletedchallenges', (req, res) => {
-    db.query(`select * from UserParticipations where u_id = ${req.query.id}`, (err, result) => {
+    db.query(`select * from UserParticipations where user_id = ${req.query.id}`, (err, result) => {
       if(err) throw err;
       res.send(result);
     })

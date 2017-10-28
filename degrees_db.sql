@@ -1,4 +1,3 @@
---#create database
 DROP DATABASE IF EXISTS degrees_db;
 CREATE DATABASE degrees_db;
 USE degrees_db;
@@ -149,8 +148,4 @@ INSERT INTO UserInvites(user_id1, user_id2, c_id)
 
 show tables;
 
---#query to get longest
-
-Select len(degreeID) from Userparticipations where c_id = 2;
-
-
+/* Select len(degreeID) from Userparticipations where c_id = 2 */;
