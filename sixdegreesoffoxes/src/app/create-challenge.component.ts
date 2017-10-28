@@ -12,7 +12,7 @@ import { NPService } from './services/np.service';
 export class CreateChallengeComponent {
   private nonprofit: Object = {};
   private challenge_name: String;
-  private selected_actions: any;
+  selected_actions: any;
 
   private nonprofits: Array<Object> = [{ "np_name":"hi" }];
   private actions: Array<Object> = [{"action_name":"Donate money"}, {"action_name":"Volunteer"}]; //array of form data
@@ -27,8 +27,7 @@ export class CreateChallengeComponent {
     });
   }
   submit = function() {
-    console.log(this.selected_actions);
-    // this.db.createChallenge(this.nonprofit.np_name, this.name, this.selected_actions).then(res => {
-    // });
+    this.db.createChallenge(this.nonprofit.np_name, this.name, this.selected_actions).then(res => {
+    });
   }
 }

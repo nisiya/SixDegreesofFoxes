@@ -20,7 +20,7 @@
 			</div>
 			<div class="form-group">
 					<label for="actions">Actions</label>
-					<select multiple class="form-control" id="selected_actions" [(ngModel)]="selected_actions">
+					<select multiple class="form-control" id="selected_actions" [(ngModel)]="selected_actions" [ngModelOptions]="{standalone: true}">
 						<option *ngFor="let action of actions">{{action.action_name}}</option> 
 						<!-- [ngValue]="action" [value]="action" -->
 					</select>
