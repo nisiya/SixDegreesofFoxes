@@ -5,11 +5,13 @@ module.exports = function(app, db) {
   });
 
   app.post('/register/user', (req, res) => {
+    console.log(req);
     const user = req.query;
+    console.log(user);
     db.query(`insert into Users
       set ?`, user, (err, pointer) => {
       if(err) throw err;
-      res.send(`${pointer.insertId}`);
+      res.send("something");
     });
   });
 
