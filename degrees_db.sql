@@ -3,7 +3,7 @@ DROP DATABASE IF EXISTS degrees_db;
 CREATE DATABASE degrees_db;
 USE degrees_db;
 
---#drop tables
+
 DROP TABLE IF EXISTS Users;
 DROP TABLE IF EXISTS Non_profits;
 DROP TABLE IF EXISTS Challenges;
@@ -31,19 +31,6 @@ CREATE TABLE IF NOT EXISTS Non_profits(
     summary TEXT,
     PRIMARY KEY (np_id)
 );
-CREATE TABLE IF NOT EXISTS Challenges(
-    c_id INT AUTO_INCREMENT,
-    c_name VARCHAR(255),
-    user_id INT,
-    np_id INT,
-    PRIMARY KEY (c_id)
-    UNIQUE (c_name);
-);
-
-ALTER TABLE Challenges
-    ADD FOREIGN KEY (user_id) REFERENCES Users (user_id);
-ALTER TABLE Challenges
-    ADD FOREIGN KEY (a_id) REFERENCES Actions (a_id);
 
 CREATE TABLE IF NOT EXISTS Actions(
     a_id INT AUTO_INCREMENT,
@@ -51,6 +38,21 @@ CREATE TABLE IF NOT EXISTS Actions(
     val INT,
     PRIMARY KEY (a_id)
 );
+
+CREATE TABLE IF NOT EXISTS Challenges(
+    c_id INT AUTO_INCREMENT,
+    c_name TEXT,
+    user_id INT,
+    np_id INT,
+    PRIMARY KEY (c_id)
+);
+
+ALTER TABLE Challenges
+    ADD FOREIGN KEY (user_id) REFERENCES Users (user_id);
+ALTER TABLE Challenges
+    ADD FOREIGN KEY (np_id) REFERENCES Non_profits (np_id);
+
+
 CREATE TABLE IF NOT EXISTS ChallengeActions(
     c_id INT,
     a_id INT,
@@ -63,16 +65,16 @@ ALTER TABLE ChallengeActions
     ADD FOREIGN KEY (a_id) REFERENCES Actions (a_id);
 
 CREATE TABLE IF NOT EXISTS UserInvites(
-    u_id1 INT,
-    u_id2 INT,
+    user_id1 INT,
+    user_id2 INT,
     c_id INT,
-    PRIMARY KEY (u_id1, u_id2, c_id)
+    PRIMARY KEY (user_id1, user_id2, c_id)
 );
 
 ALTER TABLE UserInvites
-    ADD FOREIGN KEY (u_id1) REFERENCES Users (user_id);
+    ADD FOREIGN KEY (user_id1) REFERENCES Users (user_id);
 ALTER TABLE UserInvites
-    ADD FOREIGN KEY (u_id2) REFERENCES Users (user_id);
+    ADD FOREIGN KEY (user_id2) REFERENCES Users (user_id);
 ALTER TABLE UserInvites
     ADD FOREIGN KEY (c_id) REFERENCES Challenges (c_id);
 
@@ -81,6 +83,7 @@ CREATE TABLE IF NOT EXISTS UserParticipations(
     c_id INT,
     a_id INT,
     ContrVal INT,
+    degreeID TEXT,
     PRIMARY KEY (user_id, c_id, a_id)
 );
 
@@ -89,7 +92,7 @@ ALTER TABLE UserParticipations
 ALTER TABLE UserParticipations
     ADD FOREIGN KEY (c_id) REFERENCES Challenges (c_id);
 ALTER TABLE UserParticipations
-    ADD FOREIGN KEY (a_id) REFERENCES Actions (c_id);
+    ADD FOREIGN KEY (a_id) REFERENCES Actions (a_id);
 
 
 INSERT INTO Users (first_name, last_name, user_email, user_pass)
@@ -121,49 +124,33 @@ INSERT INTO Non_profits (np_name, np_email, np_pass, summary)
 INSERT INTO Challenges (c_name, user_id, np_id)
 	VALUES ('Help Hounds', 3, 1),
 	       ('Volunteer 10', 4, 3),
-	       ('FundAClass', 1, 1),
-         ('FundADog', 1, 2),
-         ('FundAPet', 1, 3);
+	       ('FundAClass', 1, 2);
 
 INSERT INTO ChallengeActions (c_id, a_id)
 	VALUES (1, 1),
 	       (1, 3),
 	       (2, 1),
-	       (3, 2),
-         (3, 2),
-         (2, 2),
-         (2, 1),
-         (3, 2);
+	       (3, 2);
 
-INSERT INTO UserParticipations(user_id, c_id, a_id, ContrVal)
-	VALUES (4, 1, 1, 10),
-         (1, 2, 1, 10),
-	       (7, 2, 1, 10),
-	       (9, 3, 2, 60),
-	       (6, 3, 2, 7),
-	       (3, 1, 3, 15);
+INSERT INTO UserParticipations(user_id, c_id, a_id, ContrVal, degreeID)
+	VALUES (1, 2, 1, 10, '0'),
+	       (4, 2, 1, 10, '01'),
+	       (5, 2, 2, 60, '012'),
+	       (8, 2, 2, 7, '02'),
+	       (14, 2, 2, 10, '0121');
 
-INSERT INTO UserInvites(u_id1, u_id2, c_id)
-	VALUES (2, 4, 2),
-	       (1, 8, 3),
-	       (6, 3, 2),
-	       (11, 10, 1),
-	       (7, 4, 2),
-	       (14, 12, 1),
-	       (14, 1, 2),
-	       (1, 8, 1);
+INSERT INTO UserInvites(user_id1, user_id2, c_id)
+	VALUES (1, 4, 2),
+	       (1, 8, 2),
+	       (4, 3, 2),
+	       (4, 5, 2),
+	       (5, 14, 2),
+	       (8, 6, 2);
 
-Select * from UserInvites;
-Select * from UserParticipation;
-Select * from ChallengeActions;
+show tables;
 
-select * from Actions;
-select * from Challenges;
-select * from Non_profits;
+--#query to get longest
 
-select * from Users;
+Select len(degreeID) from Userparticipations where c_id = 2;
 
 
-Select * from
-
-Select sum(contrval) from userparticipation where c_id = 1 and a_id = 2 group by c_id, a_id;
