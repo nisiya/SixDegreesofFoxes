@@ -1,31 +1,29 @@
-<h1>
-	Create Challenge
-</h1>
 <div class="container">
 	<div class="row">
-		<form id="create_acc_user_form" class="create_acc_forms" role="form">
+			<h1>
+					Create Challenge
+			</h1>
+	</div>
+	<div class="row">
+		<form id="create_acc_user_form" class="mx-auto" role="form">
 			<fieldset>
 			<div class="form-group">
-			<label for="np_name">Non-profit</label>
-			<input type="text" [(ngModel)]="this.first_name" class="form-control" id="first_name" aria-describedby="fnameHelp" placeholder="Enter first name">
-			<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+			<label for="np_name"> Non-profit</label>
+				<select id="np_name" [(ngModel)]="this.np_name" name="np_name" class="form-control form-control-sm">
+					<option>Small select</option>
+				</select>
 			</div>
 			<div class="form-group">
-				<label for="last_name">Last Name</label>
-				<input type="text" [(ngModel)]="this.last_name" class="form-control" id="last_name" aria-describedby="lnameHelp" placeholder="Enter last name">
+				<label for="c_name">Challenge Name</label>
+				<input type="text" [(ngModel)]="this.c_name" name="c_name" class="form-control" id="c_name" varia-describedby="challengenameHelp" placeholder="Enter challenge name">
 				<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
 			</div>
 			<div class="form-group">
-			<label for="user_email">Email</label>
-			<input type="email" [(ngModel)]="this.user_email" class="form-control" id="user_email" placeholder="Enter your email">
-			</div>
-			<div class="form-group">
-				<label for="user_pass">Password</label>
-				<input type="password" [(ngModel)]="this.user_pass" class="form-control" id="user_pass" placeholder="Enter a password">
-			</div>
-			<div class="form-group">
-					<label for="user_pass_conf">Confirm Password</label>
-					<input type="password" [(ngModel)]="this.user_pass_conf" class="form-control" id="user_pass_conf" placeholder="Confirm the password">
+					<label for="actions">Actions</label>
+					<select [(ngModel)]="this.actions" name="actions" id="actions" multiple class="form-control" id="actions">
+					  <option>Donate Money</option>
+					  <option>Volunteer</option>
+					</select>
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</fieldset>

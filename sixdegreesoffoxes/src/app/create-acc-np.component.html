@@ -6,25 +6,21 @@
 		<form id="create_acc_np_form" class="mx-auto center-text" role="form">
 			<fieldset>
 			<div class="form-group">
-			<label for="np_name">Organization Name</label>
-			<input type="text" [(ngModel)]="this.np_name" class="form-control" id="np_name" aria-describedby="np_nameHelp" placeholder="Enter your organization name">
+			<label for="np_name">Organization Name</label>	
+			<input type="text" [(ngModel)]="this.np_name" name="np_name" class="form-control" id="np_name" aria-describedby="npnameHelp" placeholder="Enter your organization name">
 			<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
 			</div>
 			<div class="form-group">
 			<label for="np_email">Email</label>
-			<input type="np_email" [(ngModel)]="this.np_email" class="form-control" id="np_email" placeholder="Enter you organization's email">
-			</div>
-			<div class="form-group">
-				<label for="np_summary">Summary</label>
-				<input type="np_summary" [(ngModel)]="this.np_summary" class="form-control" id="np_summary" placeholder="Enter a summary about your organization">
+			<input type="email" [(ngModel)]="this.np_email" name="np_email" class="form-control" id="np_email" placeholder="Enter you organization's email">
 			</div>
 			<div class="form-group">
 				<label for="np_pass">Password</label>
-				<input type="password" [(ngModel)]="this.np_pass" class="form-control" id="np_pass" placeholder="Enter a password">
+				<input type="password" [(ngModel)]="this.np_pass" name="np_pass" class="form-control" id="np_pass" placeholder="Enter a password">
 			</div>
 			<div class="form-group">
 					<label for="np_pass_conf">Confirm Password</label>
-					<input type="password" class="form-control" id="np_pass_conf" placeholder="Confirm the password">
+					<input type="password" [(ngModel)]="this.np_email_conf" name="np_email_conf" class="form-control" id="np_pass_conf" placeholder="Confirm the password">
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</fieldset>
