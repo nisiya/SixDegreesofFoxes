@@ -8,6 +8,10 @@ import { FormsModule } from '@angular/forms'; // This module allows us to have t
 import { AppComponent } from './app.component';
 import { CreateAccUserComponent } from './create-acc-user.component';
 import { CreateAccNPComponent } from './create-acc-np.component';
+import { CreateChallengeComponent } from './create-challenge.component';
+import { InvitePeopleComponent } from './invite-people.component';
+import { LoginComponent } from './login.component';
+
 
 import { DBService } from './services/db.service';
 import { UserService } from './services/user.service';
@@ -17,7 +21,10 @@ import { NPService } from './services/np.service';
   declarations: [
     AppComponent,
     CreateAccUserComponent,
-    CreateAccNPComponent
+    CreateAccNPComponent,
+    CreateChallengeComponent,
+    LoginComponent,
+    InvitePeopleComponent
   ],
   imports: [
     BrowserModule,
