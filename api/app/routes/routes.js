@@ -64,4 +64,10 @@ module.exports = function(app, db) {
   //   //
   // });
 
+  app.get('/nps', (req, res) => {
+    db.query(`select * from Non_profits`, (err, nps) => {
+      if(err) throw err;
+      res.send(nps);
+    });
+  });
 };
