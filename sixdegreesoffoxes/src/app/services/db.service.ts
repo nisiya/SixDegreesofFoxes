@@ -118,6 +118,22 @@ export class DBService {
         .catch(this.handleError); 
     }
 
+    createChallenge(nonprofit, name, actions): Promise<any> {
+        console.log(nonprofit + name + actions);
+        let createchallenge = this.url + '/challenge';
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        let params = new URLSearchParams();
+        params.set('nonprofit', nonprofit);
+        params.set('name', name);
+        params.set('actions', actions);
+        let options = new RequestOptions({headers: headers, search: params});
+        return this.http.get(createchallenge, options)
+        .toPromise()
+        .then(response => response.json()　as Object)
+        .catch(this.handleError);
+    }
+
         
 
     // /**

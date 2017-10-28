@@ -27,7 +27,7 @@
 					<label for="user_pass_conf">Confirm Password</label>
 					<input type="password" [(ngModel)]="this.user_pass_conf" class="form-control" id="user_pass_conf" placeholder="Confirm the password">
 			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<button type="submit" class="btn btn-primary" (click)="this.submit()">Submit</button>
 		</fieldset>
 		</form>
 	</div>
