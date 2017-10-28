@@ -14,7 +14,7 @@
         <label for="pass">Password</label>
         <input type="password" [(ngModel)]="this.pass" name="pass" class="form-control" id="pass" placeholder="Enter your password">
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary" (click)="this.step();">Submit</button>
     </form>
   </div>
 </div>

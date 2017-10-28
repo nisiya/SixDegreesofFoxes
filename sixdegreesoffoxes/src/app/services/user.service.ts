@@ -4,7 +4,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class UserService {
     public isLoggedIn: boolean = false;
-    public id: number = 1;
+    public id: number = 3;
     public name: String = "Bob";
     public email: String;
     selectedPendingChallenge: any;

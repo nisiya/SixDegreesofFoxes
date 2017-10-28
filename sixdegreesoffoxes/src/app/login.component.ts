@@ -29,4 +29,8 @@ export class LoginComponent {
       }
     });
   }
+  step = function() {
+    this.user.isLoggedIn = true;
+    this.router.navigate(['view-acc-user']);
+  }
 }
