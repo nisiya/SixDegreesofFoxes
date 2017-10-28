@@ -59,10 +59,17 @@ module.exports = function(app, db) {
   });
 
   // create a challenge
-  // app.post('/challenge', (req, res) => {
-  //   const challenge = req.body;
-  //   //
-  // });
+  app.post('/challenge', (req, res) => {
+    const challenge = req.body;
+    db.query()
+  });
+
+  app.get('/actions', (req, res) => {
+    db.query(`select * from Actions`, (err, actions) => {
+      if(err) throw err;
+      res.send(actions);
+    });
+  });
 
   app.get('/nps', (req, res) => {
     db.query(`select * from Non_profits`, (err, nps) => {

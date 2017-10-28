@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS Users(
     first_name TEXT,
     last_name TEXT,
     email TEXT,
-    pass TEXT, 
+    pass TEXT,
     PRIMARY KEY (user_id)
 );
 show tables;
@@ -47,12 +47,12 @@ ALTER TABLE Challenges
 CREATE TABLE IF NOT EXISTS Actions(
     a_id INT AUTO_INCREMENT,
     a_name TEXT,
+    val INT,
     PRIMARY KEY (a_id)
 );
 CREATE TABLE IF NOT EXISTS ChallengeActions(
     c_id INT,
     a_id INT,
-    ActionVal INT,
     PRIMARY KEY (c_id, a_id)
 );
 
@@ -120,12 +120,12 @@ INSERT INTO Non_profits (np_name, email, pass, summary)
 INSERT INTO Challenges (c_name, u_id, np_id)
 	VALUES ('Help Hounds', 3, 1),
 	       ('Volunteer 10', 4, 3),
-	       ('FundAClass', 1, 2); 
+	       ('FundAClass', 1, 2);
 
 INSERT INTO ChallengeActions (c_id, a_id, ActionVal)
 	VALUES (1, 1, 10),
-	       (1, 3, 5), 
-	       (2, 1, 10), 
+	       (1, 3, 5),
+	       (2, 1, 10),
 	       (3, 2, 1);
 
 INSERT INTO UserParticipation(u_id, c_id, a_id, ContrVal)
@@ -148,9 +148,9 @@ INSERT INTO UserInvites(u_id1, u_id2, c_id)
 Select * from UserInvites;
 Select * from UserParticipation;
 Select * from ChallengeActions;
-	
+
 select * from Actions;
 select * from Challenges;
-select * from Non_profits;     
+select * from Non_profits;
 
 select * from Users;
