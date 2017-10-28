@@ -91,6 +91,14 @@ module.exports = function(app, db) {
     });
   });
 
+  app.get('/challenge/:id', (req, res) => {
+    const cid = req.params.id;
+    db.query(`select * from Challenges where c_id = ?`, cid, (err, result) => {
+      if(err) throw err;
+      res.send(result);
+    });
+  });
+
   app.get('/actions', (req, res) => {
     db.query(`select * from Actions`, (err, actions) => {
       if(err) throw err;
