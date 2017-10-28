@@ -69,6 +69,55 @@ export class DBService {
         .then(response => response.json()　as Object)
         .catch(this.handleError); 
     }
+
+    getActions(): Promise<any> {
+        let getactions = this.url + '/getactions';
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        let params = new URLSearchParams();
+        let options = new RequestOptions({headers: headers, search: params});
+        return this.http.get(getactions, options)
+        .toPromise()
+        .then(response => response.json()　as Object)
+        .catch(this.handleError); 
+    }
+
+    getChallenges(): Promise<any> {
+        let getchallenges = this.url + '/getchallenges';
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        let params = new URLSearchParams();
+        let options = new RequestOptions({headers: headers, search: params});
+        return this.http.get(getchallenges, options)
+        .toPromise()
+        .then(response => response.json()　as Object)
+        .catch(this.handleError); 
+    }
+
+    getCompletedChallenges(): Promise<any> {
+        let getcompletedchallenges = this.url + '/getcompletedchallenges';
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        let params = new URLSearchParams();
+        let options = new RequestOptions({headers: headers, search: params});
+        return this.http.get(getcompletedchallenges, options)
+        .toPromise()
+        .then(response => response.json()　as Object)
+        .catch(this.handleError); 
+    }
+
+    getChallenge(): Promise<any> {
+        let getchallenge = this.url + '/getchallenge';
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        let params = new URLSearchParams();
+        let options = new RequestOptions({headers: headers, search: params});
+        return this.http.get(getchallenge, options)
+        .toPromise()
+        .then(response => response.json()　as Object)
+        .catch(this.handleError); 
+    }
+
         
 
     // /**
