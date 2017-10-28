@@ -1,8 +1,3 @@
-/**
- * Imago Imaginis 
- * ----------------------------
- * Angular Service that pulls data from the database via HTTP calls
- */
 import { Injectable } from '@angular/core';
 import { Headers, Http, RequestOptions, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
@@ -13,7 +8,7 @@ export class DBService {
     url = `http://localhost:8000`;
     constructor(private http: Http){}
 
-    registerUser(name, email, password): Promise<any> {
+    registerUser(first_name, last_name, email, password): Promise<any> {
         console.log(name + email + password);
         console.log("Performing GET");
         let register_user = this.url + '/register/user';
