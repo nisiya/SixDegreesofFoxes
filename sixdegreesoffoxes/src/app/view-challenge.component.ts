@@ -11,7 +11,7 @@ import { UserService } from './services/user.service';
   styleUrls: ['./app.component.css']
 })
 export class ViewChallengeComponent {
-  private nonprofit="Dayna";
+  private nonprofit="Red Cross";
   private chal_name: String;
   private np_id: String;
   private np_name: String;
@@ -37,7 +37,7 @@ export class ViewChallengeComponent {
 
     this.db.getChallenge(challenge.c_id).then(results => {
       console.log(results);
-      
+
     })
 
     /*this needs wor
