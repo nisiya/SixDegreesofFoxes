@@ -5,8 +5,8 @@ module.exports = function(app, db) {
     var user = {
       first_name: req.query.first_name,
       last_name: req.query.last_name,
-      pass: req.query.pass,
-      email: req.query.email
+      user_pass: req.query.pass,
+      user_email: req.query.email
     };
     db.query(`insert into Users
       set ?`, user, (err, pointer) => {
@@ -20,8 +20,8 @@ module.exports = function(app, db) {
     var user = {
       first_name: "PLEASE WORK",
       last_name: req.query.last_name,
-      pass: req.query.pass,
-      email: req.query.email
+      user_pass: req.query.pass,
+      user_email: req.query.email
     };
     db.query(`insert into Users
       set ?`, user, (err, pointer) => {
@@ -41,11 +41,11 @@ module.exports = function(app, db) {
   // log in for both
   app.post('/login', (req, res) => {
     const unknown = req.query; // user or np
-    db.query(`select email, pass, user_id from Users where email = ?`, unknown.email, (err, userPointer) => {
+    db.query(`select user_email, user_pass, user_id from Users where user_email = ?`, unknown.email, (err, userPointer) => {
       if(err) throw err;
       if(!userPointer[0]) {
         // it's not a user, try nonprofit
-        db.query(`select email, pass, np_id from Non_profits where email = ?`, unknown.email, (err, pointer) => {
+        db.query(`select np_email, np_pass, np_id from Non_profits where np_email = ?`, unknown.email, (err, pointer) => {
           if(err) throw err;
           if(!pointer[0]) {
             // neither user nor user
@@ -80,7 +80,7 @@ module.exports = function(app, db) {
     // npid the non profit the challenge is for
     // uid user created it
     challenge.aids = JSON.parse(challenge.aids);
-    db.query(`insert into Challenges (c_name, u_id, np_id)
+    db.query(`insert into Challenges (c_name, user_id, np_id)
     values ('${challenge.c_name}', '${challenge.u_id}', '${challenge.np_id}')`, (err, dbChallenge) => {
       if(err) throw err;
       // add the actions related to the challenge
@@ -105,11 +105,9 @@ module.exports = function(app, db) {
     });
   });
 
-  app.get('/challenge/:id', (req, res) => {
-    const cid = req.params.id;
-    db.query(`select * from Challenges where c_id = ?`, cid, (err, result) => {
-      if(err) throw err;
-      res.send(result[0]);
+  app.get('/getchallenge', (req, res) => {
+    db.query(`select * from Challenges where c_id = ${req.query.id}`, (err, result) => {
+      res.send(result);
     });
   });
 
@@ -143,7 +141,7 @@ module.exports = function(app, db) {
   });
 
   app.get('/getpending', (req, res) => {
-    db.query(`select * from UserInvites where u_id2 = ${req.query.id}`, (err, result) => {
+    db.query(`select * from UserInvites where user_id2 = ${req.query.id}`, (err, result) => {
       if(err) throw err;
       res.send(result);
     })

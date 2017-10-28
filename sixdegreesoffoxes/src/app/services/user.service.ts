@@ -7,6 +7,8 @@ export class UserService {
     public id: number = 1;
     public name: String = "Bob";
     public email: String;
+    selectedPendingChallenge: any;
+    selectedCompletedChallenge: any;
     public constructor(){
         // If the user reloads the page, keep them logged in
         console.log(sessionStorage);
